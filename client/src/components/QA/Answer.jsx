@@ -23,7 +23,8 @@ const Answer = ({questionid, shouldFetchQ, setShouldFetchQ, openAModal, shouldFe
 
   //hooks & handlers
   useEffect(()=> {
-    axios.get(`/qa/questions/${questionid}/answers`)
+    //axios.get(`/qa/questions/${questionid}/answers`)
+    axios.get(`localhost:3001/qa/questions/${questionid}/answers`)
     .then((res)=>{
       setAnswers(res.data.results)
       setRenderA(res.data.results.slice(start, end))
@@ -45,7 +46,8 @@ const Answer = ({questionid, shouldFetchQ, setShouldFetchQ, openAModal, shouldFe
   const helpfulAnswerOnclick = (iD) => {
 
     const config = {params: {answer_id: iD}}
-    axios.put('/qa/answers/:answer_id/helpful', {}, config)
+    //axios.put('/qa/answers/:answer_id/helpful', {}, config)
+    axios.put(`localhost:3001/qa/answers/:answer_id/helpful`, {}, config)
     .then((success) => {
     })
     .catch((error) => {
@@ -57,10 +59,12 @@ const Answer = ({questionid, shouldFetchQ, setShouldFetchQ, openAModal, shouldFe
   const reportAnswerOnclick = (iD) => {
 
     const config = {params: {answer_id: iD}}
-    axios.put('/qa/answers/:answer_id/report', {}, config)
+    //axios.put('/qa/answers/:answer_id/report', {}, config)
+    axios.put(`localhost:3001/qa/answers/:answer_id/report`, {}, config)
     .then((success) => {
 
-      axios.get(`/qa/questions/${questionid}/answers`)
+      //axios.get(`/qa/questions/${questionid}/answers`)
+      axios.get(`localhost:3001/qa/questions/${questionid}/answers`)
         .then((res)=>{
           setAnswers(res.data.results)
           setRenderA(res.data.results.slice(start, end))

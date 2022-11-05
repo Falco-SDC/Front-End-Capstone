@@ -37,7 +37,8 @@ const QuestionList = ({productID}) => {
   // Hooks & Handler
   useEffect(()=> {
 
-    axios.get('/qa/questions', {params: {product_id: productID, count: 100}})
+    //axios.get('/qa/questions', {params: {product_id: productID, count: 100}})
+    axios.get('localhost:3001/qa/questions', {params: {product_id: productID, count: 100}})
     .then((res)=>{
       console.log('setting questions')
       if (res.data.results.length <= 4) {
