@@ -30,7 +30,8 @@ const AddAnswerModal = ({openAModal, questionId, shouldFetchA, setShouldFetchA})
 
     const config = {params: {question_id: questionId}}
 
-    axios.post('/qa/questions/:question_id/answers', dataObj, config)
+    //axios.post('/qa/questions/:question_id/answers', dataObj, config)
+    axios.post('localhost:3001/qa/questions/:question_id/answers', dataObj, config)
     .then((res)=>{
       setShouldFetchA(!shouldFetchA)
       openAModal()

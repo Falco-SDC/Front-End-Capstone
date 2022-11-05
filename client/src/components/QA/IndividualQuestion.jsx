@@ -49,7 +49,8 @@ const openAModal = () => {
 const helpfulQuestionOnclick = (id) => {
 
   const config = {params: {question_id: id}}
-  axios.put('/qa/questions/:question_id/helpful', {}, config)
+  //axios.put('/qa/questions/:question_id/helpful', {}, config)
+  axios.put('localhost:3001/qa/questions/:question_id/helpful', {}, config)
   .then((success) => {
   })
   .catch((error) => {
@@ -61,7 +62,8 @@ const helpfulQuestionOnclick = (id) => {
 const reportQuestionOnclick = (id) => {
 
   const config = {params: {question_id: id}}
-  axios.put('/qa/questions/:question_id/report', {}, config)
+  //axios.put('/qa/questions/:question_id/report', {}, config)
+  axios.put('localhost:3001/qa/questions/:question_id/report', {}, config)
   .then((success) => {
     setShouldFetchQ(!shouldFetchQ)
   })

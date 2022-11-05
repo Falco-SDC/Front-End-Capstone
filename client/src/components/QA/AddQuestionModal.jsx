@@ -30,7 +30,8 @@ const Modal = ({openQModal, productId, setProductId, setShowQModal, shouldFetchQ
 
     const dataObj = newPostObj(questionRef.current.value, nicknameRef.current.value, emailRef.current.value, parseInt(productId))
 
-    axios.post('/qa/questions', dataObj)
+    //axios.post('/qa/questions', dataObj)
+    axios.post('localhost:3001/qa/questions', dataObj)
     .then((res)=>{
       setShowQModal(false)
       setShouldFetchQ(!shouldFetchQ)
